@@ -39,7 +39,7 @@ elif avg >= 80 and avg < 90: #added missing colon
     letter_grade = "B"
 elif avg > 69 and avg < 80:
     letter_grade = "C" #changed the single quote to double quotes at the end
-elif avg <= 69 and avg >= 65: 
+elif avg >= 69 and avg > 70: #corrected the logical error; changed "<= 69" to ">= 69", and ">= 65" to "< 70" 
     letter_grade = "D"
 else: #changed "elif" to "else"
     letter_grade = "F"
