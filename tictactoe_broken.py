@@ -67,7 +67,7 @@ def add_piece(game, player, row, column):
     row: 0-index row
     column: 0-index column
     """
-    game[row][column+1] = player
+    game[row][column] = player #removed the +1 in the column section in order to put the mark in the right box.
     return game
 
 def check_space_empty(game, row, column):
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     game = start_game()
     display_game(game)
     player = 1
-    winner = 0  # the winner is not yet defined
+    winner = 0  #the winner is not yet defined
 
     while winner == 0 and moves_exist(game):
         print("Currently player: " + str(player))
@@ -102,6 +102,9 @@ if __name__ == '__main__':
             row = convert_input_to_coordinate(int(input("Which row? (start with 1) ")))
             column = convert_input_to_coordinate(int(input("Which column? (start with 1) ")))
             available = check_space_empty(game, row, column) #added missing argument "column" 
+            if available == 0: 
+                print("This box is filled already. Choose a different one.") 
+            #added an if statement to inform the user that the box is already full
         game = add_piece(game, player, row, column)
         display_game(game)
         player = switch_player(player)
